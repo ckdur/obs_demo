@@ -20,5 +20,8 @@ manual: $(SYN_DIR)/tcl/synthesis.tcl $(SYN_SRC) $(SYN_DIR)/tcl/rtl.sdc.tcl
 clean:
 	rm -rfv *.log* *.cmd* *_intermediate.v *_net.v *.sdf fv reports outputs *.tstamp
 
+shuffle: $(SYN_DIR)/tcl/aleatorize.py $(SYN_DIR)/outputs/$(TOP)_net.v
+	python3 $(SYN_DIR)/tcl/aleatorize.py $(SYN_DIR)/outputs/$(TOP)_net.v $(SYN_DIR)/outputs/$(TOP)_net.obs.v $(LEVELS)
+
 .PHONY: clean
 

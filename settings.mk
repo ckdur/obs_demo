@@ -2,6 +2,7 @@
 # Proportional dimmentions
 ROOT_DIR?=$(abspath .)
 TECH?=sky130
+LEVELS?=4
 
 PX?=4
 PY?=2
