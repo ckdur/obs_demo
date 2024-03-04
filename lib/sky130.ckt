@@ -1,0 +1,571 @@
+** Created by: circuit_gen.AN2D1
+** Cell name: AN2D1
+** Lib name: sky130
+.SUBCKT AN2D1 a1 a2 vdd vss z
+*.PININFO a1:I a2:I z:O vdd:B vss:B 
+X_M23 n6 a1 x_u2_n6 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=5.900e-01
+X_M32 z n6 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M24 x_u2_n6 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=5.900e-01
+X_M33 z n6 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M22 n6 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M21 n6 a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.AN2D1
+** Cell name: AN2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.AO21D1
+** Cell name: AO21D1
+** Lib name: sky130
+.SUBCKT AO21D1 a1 a2 b vdd vss z
+*.PININFO a1:I a2:I b:I z:O vdd:B vss:B 
+X_M17 n32 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M27 n59 a1 n32 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M16 n59 b vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M82 z n59 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M23 n22 a1 n59 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M83 z n59 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M24 n22 a2 n59 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M22 n22 b vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.AO21D1
+** Cell name: AO21D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.AOI21D1
+** Cell name: AOI21D1
+** Lib name: sky130
+.SUBCKT AOI21D1 a1 a2 b vdd vss zn
+*.PININFO a1:I a2:I b:I zn:O vdd:B vss:B 
+X_M12 zn a1 n27 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M13 n27 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M27 zn b vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M24 n13 a2 zn vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M22 n13 b vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M23 n13 a1 zn vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.AOI21D1
+** Cell name: AOI21D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.BUFFD1
+** Cell name: BUFFD1
+** Lib name: sky130
+.SUBCKT BUFFD1 i vdd vss z
+*.PININFO i:I z:O vdd:B vss:B 
+X_M32 z n8 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M22 n8 i vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M33 z n8 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M23 n8 i vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.BUFFD1
+** Cell name: BUFFD1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.DFCNQD1
+** Cell name: DFCNQD1
+** Lib name: sky130
+.SUBCKT DFCNQD1 cdn cp d q vdd vss
+*.PININFO cdn:I cp:I d:I q:O vdd:B vss:B 
+X_M124 n57 d3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M14 n52 incpb vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M115 d1 incp d2 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.550e-01
+X_M15 d0 d n52 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M123 d2 incpb n57 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M147 d0 incp n59 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M148 n59 d1 n62 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M149 n62 cdn vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M214 xi21_n6 cdn vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M213 d3 d2 xi21_n6 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M322 incp incpb vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M312 incpb cp vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M272 q d3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M132 d1 d0 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M16 d0 d n85 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.350e-01
+X_M212 d3 cdn vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=9.000e-01
+X_M211 d3 d2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=9.000e-01
+X_M323 incp incpb vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M313 incpb cp vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M273 q d3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M133 d1 d0 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=6.500e-01
+X_M17 n85 incp vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.350e-01
+X_M126 d2 incp n88 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M128 n88 d3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M116 d1 incpb d2 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=9.350e-01
+X_M145 d0 incpb n98 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M143 n98 d1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M144 n98 cdn vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.DFCNQD1
+** Cell name: DFCNQD1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.DFQD1
+** Cell name: DFQD1
+** Lib name: sky130
+.SUBCKT DFQD1 cp d q vdd vss
+*.PININFO cp:I d:I q:O vdd:B vss:B 
+X_M14 n43 incpb vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M123 d2 incpb n42 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M15 d0 d n43 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M147 d0 incp n50 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M148 n50 d1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M124 n42 d3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M150 d1 incp d2 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M322 incp incpb vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M312 incpb cp vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M272 q d3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M532 d3 d2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M132 d1 d0 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.250e-01
+X_M16 d0 d n66 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=6.250e-01
+X_M323 incp incpb vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M313 incpb cp vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M273 q d3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M533 d3 d2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M133 d1 d0 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=6.250e-01
+X_M17 n66 incp vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.350e-01
+X_M152 d1 incpb d2 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=8.850e-01
+X_M128 n74 d3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M126 d2 incp n74 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M145 d0 incpb n84 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M143 n84 d1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.DFQD1
+** Cell name: DFQD1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.INVD1
+** Cell name: INVD1
+** Lib name: sky130
+.SUBCKT INVD1 i z vss vdd
+*.PININFO i:I z:O vss:B vdd:B
+X0 z i vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X1 z i vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.INVD1
+** Cell name: INVD1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.LNQD1
+** Cell name: LNQD1
+** Lib name: sky130
+.SUBCKT LNQD1 d en q vdd vss
+*.PININFO d:I en:I q:O vdd:B vss:B 
+X_M22 n9 en vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M232 q n15 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M292 n30 n9 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M302 n20 n15 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M3323 n15 n9 xu32_n16 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.350e-01
+X_M3324 xu32_n16 d vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.350e-01
+X_M3223 n15 n30 xu22_n16 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M3224 xu22_n16 n20 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M3322 n15 n30 xu32_n6 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.500e-01
+X_M23 n9 en vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M233 q n15 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M293 n30 n9 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M303 n20 n15 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M3321 xu32_n6 d vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.500e-01
+X_M3222 n15 n9 xu22_n6 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+X_M3221 xu22_n6 n20 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=4.200e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.LNQD1
+** Cell name: LNQD1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.MUX2D1
+** Cell name: MUX2D1
+** Lib name: sky130
+.SUBCKT MUX2D1 i0 i1 s vdd vss z
+*.PININFO i0:I i1:I s:I z:O vdd:B vss:B 
+X_M153 n46 s n28 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M73 n48 n42 n28 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M202 n46 i1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M192 n48 i0 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.700e-01
+X_M182 n42 s vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M292 z n28 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M152 n46 n42 n28 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M72 n48 s n28 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M203 n46 i1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M193 n48 i0 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=8.250e-01
+X_M183 n42 s vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M293 z n28 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=7.000e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.MUX2D1
+** Cell name: MUX2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.ND2D1
+** Cell name: ND2D1
+** Lib name: sky130
+.SUBCKT ND2D1 a1 a2 vdd vss zn
+*.PININFO a1:I a2:I zn:O vdd:B vss:B 
+X_M13 zn a1 xi1_n6 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M14 xi1_n6 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M12 zn a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M11 zn a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.ND2D1
+** Cell name: ND2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.ND3D1
+** Cell name: ND3D1
+** Lib name: sky130
+.SUBCKT ND3D1 a1 a2 a3 vdd vss zn
+*.PININFO a1:I a2:I a3:I zn:O vdd:B vss:B 
+X_M14 zn a1 xi1_n10 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M15 xi1_n10 a2 xi1_n13 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M16 xi1_n13 a3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M13 zn a3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M11 zn a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M12 zn a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.ND3D1
+** Cell name: ND3D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.ND4D1
+** Cell name: ND4D1
+** Lib name: sky130
+.SUBCKT ND4D1 a1 a2 a3 a4 vdd vss zn
+*.PININFO a1:I a2:I a3:I a4:I zn:O vdd:B vss:B 
+X_M13 p0 a2 p1 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M15 p2 a4 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M14 p1 a3 p2 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M53 zn a1 p0 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M17 zn a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M12 zn a4 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M11 zn a3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M10 zn a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.ND4D1
+** Cell name: ND4D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.NR2D1
+** Cell name: NR2D1
+** Lib name: sky130
+.SUBCKT NR2D1 a1 a2 vdd vss zn
+*.PININFO a1:I a2:I zn:O vdd:B vss:B 
+X_M14 zn a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M13 zn a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M12 zn a1 xi1_n8 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M11 xi1_n8 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.NR2D1
+** Cell name: NR2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.NR3D1
+** Cell name: NR3D1
+** Lib name: sky130
+.SUBCKT NR3D1 a1 a2 a3 vdd vss zn
+*.PININFO a1:I a2:I a3:I zn:O vdd:B vss:B 
+X_M24 zn a3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M12 zn a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M13 zn a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M14_0 n37_0_ a2 n34_0_ vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M21_0 n34_0_ a3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M21_1 n34_1_ a3 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M14_1 n37_1_ a2 n34_1_ vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M15_0 zn a1 n37_0_ vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M15_1 zn a1 n37_1_ vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.NR3D1
+** Cell name: NR3D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.NR4D1
+** Cell name: NR4D1
+** Lib name: sky130
+.SUBCKT NR4D1 a1 a2 a3 a4 vdd vss zn
+*.PININFO a1:I a2:I a3:I a4:I zn:O vdd:B vss:B 
+X_M136 zn a4 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.250e-01
+X_M135 zn a3 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.250e-01
+X_M134 zn a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.250e-01
+X_M15 zn a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.250e-01
+X_M126 n49 a3 n52 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M130 n43 a2 n40 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M131 n40 a3 n37 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M132 n37 a4 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M129 zn a1 n43 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M17 n52 a4 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M127 n46 a2 n49 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M128 zn a1 n46 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.NR4D1
+** Cell name: NR4D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.OA21D1
+** Cell name: OA21D1
+** Lib name: sky130
+.SUBCKT OA21D1 a1 a2 b vdd vss z
+*.PININFO a1:I a2:I b:I z:O vdd:B vss:B 
+X_M112 n14 a2 n20 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M111 n14 a1 n20 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M16 n20 b vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M82 z n14 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M19 n14 a1 n24 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M83 z n14 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M22 n14 b vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M17 n24 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.OA21D1
+** Cell name: OA21D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.OAI21D1
+** Cell name: OAI21D1
+** Lib name: sky130
+.SUBCKT OAI21D1 a1 a2 b vdd vss zn
+*.PININFO a1:I a2:I b:I zn:O vdd:B vss:B 
+X_M22 zn a1 n15 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M23 zn a2 n15 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M24 n15 b vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M116_MI12 zn a1 xi16_n11 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M29 zn b vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M116_MI13 xi16_n11 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.OAI21D1
+** Cell name: OAI21D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.OR2D1
+** Cell name: OR2D1
+** Lib name: sky130
+.SUBCKT OR2D1 a1 a2 vdd vss z
+*.PININFO a1:I a2:I z:O vdd:B vss:B 
+X_M12 z n7 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=5.900e-01
+X_M74 n7 a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=5.900e-01
+X_M73 n7 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=5.900e-01
+X_M72 n7 a1 x_u7_n8 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M13 z n7 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M71 x_u7_n8 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.OR2D1
+** Cell name: OR2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.TIEH
+** Cell name: TIEH
+** Lib name: sky130
+.SUBCKT TIEH vdd vss z
+*.PININFO z:O vdd:B vss:B 
+X_M22 n6 n6 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M21 z n6 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.TIEH
+** Cell name: TIEH
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.TIEL
+** Cell name: TIEL
+** Lib name: sky130
+.SUBCKT TIEL vdd vss zn
+*.PININFO zn:O vdd:B vss:B 
+X_M22 zn n6 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M21 n6 n6 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.TIEL
+** Cell name: TIEL
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.XNR2D1
+** Cell name: XNR2D1
+** Lib name: sky130
+.SUBCKT XNR2D1 a1 a2 vdd vss zn
+*.PININFO a1:I a2:I zn:O vdd:B vss:B 
+X_M22 n4 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M52 n6 n4 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M42 zn n14 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M82 n10 a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M63 n4 a1 n14 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M73 n6 n10 n14 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M62 n4 n10 n14 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M23 n4 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M53 n6 n4 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M43 zn n14 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M83 n10 a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M72 n6 a1 n14 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.XNR2D1
+** Cell name: XNR2D1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.XOR2D1
+** Cell name: XOR2D1
+** Lib name: sky130
+.SUBCKT XOR2D1 a1 a2 vdd vss z
+*.PININFO a1:I a2:I z:O vdd:B vss:B 
+X_M63 n41 a1 n21 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M23 n27 n23 n21 vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M72 n41 n27 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M32 n27 a2 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M42 z n21 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=6.500e-01
+X_M52 n23 a1 vss vss sky130_fd_pr__nfet_01v8 l=1.500e-01 w=4.200e-01
+X_M62 n41 n23 n21 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M22 n27 a1 n21 vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M73 n41 n27 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+X_M33 n27 a2 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M43 z n21 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=1.000e00
+X_M53 n23 a1 vdd vdd sky130_fd_pr__pfet_01v8 l=1.500e-01 w=5.000e-01
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.XOR2D1
+** Cell name: XOR2D1
+** Lib name: sky130
+
+
+******* EOF
+
