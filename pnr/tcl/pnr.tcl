@@ -271,7 +271,7 @@ if { [catch {check_placement -verbose} errmsg] } {
     exit 1
 }
 
-report_cts > $PNR_DIR/reports/cts.rpt
+report_cts -out_file $PNR_DIR/reports/cts.rpt
 
 ###############################################
 # Global routing
