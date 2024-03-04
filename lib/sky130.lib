@@ -38,6 +38,26 @@ library (mylibrary) {
       "1000.000000, 1001.000000, 1002.000000, 1003.000000, 1004.000000, 1005.000000"
     );
   }
+  lu_table_template (hold_template_1x6) {
+    variable_1: related_pin_transition;
+    variable_2: constrained_pin_transition;
+    index_1 (
+      "1000.000000"
+    );
+    index_2 (
+      "1000.000000, 1001.000000, 1002.000000, 1003.000000, 1004.000000, 1005.000000"
+    );
+  }
+  lu_table_template (setup_template_1x6) {
+    variable_1: related_pin_transition;
+    variable_2: constrained_pin_transition;
+    index_1 (
+      "1000.000000"
+    );
+    index_2 (
+      "1000.000000, 1001.000000, 1002.000000, 1003.000000, 1004.000000, 1005.000000"
+    );
+  }
   cell (AN2D1) {
     area: 1.4079;
     cell_footprint: an2;
@@ -672,6 +692,7 @@ library (mylibrary) {
     pin (z) {
       direction: output;
       function: "(i)";
+      max_capacitance: 0.0011270247161231858;
       timing () {
         related_pin: "i";
         timing_sense: positive_unate;

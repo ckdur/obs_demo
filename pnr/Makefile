@@ -13,6 +13,7 @@ export PY
 export PR
 export X
 export Y
+export TECH
 
 all: $(PNR_DIR)/outputs/$(TOP).gds
 
