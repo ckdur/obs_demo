@@ -12,7 +12,7 @@ expand
 drc catchup
 set allerrors [drc listall why]
 set oscale [cif scale out]
-set ofile [open $env(SIGN_DIR)/reports/$env(TOP).txt w]
+set ofile [open $env(SIGN_DIR)/reports/$env(TOP).magic.drc.txt w]
 puts $ofile "DRC errors for cell $env(TOP)"
 puts $ofile "--------------------------------------------"
 foreach {whytext rectlist} $allerrors {

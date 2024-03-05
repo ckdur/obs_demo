@@ -3,10 +3,14 @@
 ROOT_DIR?=$(abspath .)
 TECH?=sky130
 LEVELS?=4
+RECLEVELS?=1
 
 PX?=4
 PY?=2
 PR?=0.8
+
+DISPW=300
+DISPH=300
 
 #######################################################
 # Rules to create the files. 
