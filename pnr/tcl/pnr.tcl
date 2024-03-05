@@ -36,7 +36,7 @@ foreach LEFFILE $OTHERLEF {
   read_lef "$LEFFILE"
 }
 
-read_verilog $SYN_DIR/${TOP}_net.v
+read_verilog $env(SYN_NET)
 link_design ${TOP}
 
 read_sdc $SYN_DIR/tcl/rtl.sdc.tcl
@@ -67,8 +67,8 @@ set DIODECells [list ]
 ## Floor Plan
 ####################################
 # TODO: Is there a way to extract from a command?
-set row   5.04
-set track 0.64
+set row   4.08
+set track 0.34
 set pitch [expr 32*$row]
 set margin [expr 3*$row]
 
@@ -299,7 +299,7 @@ detailed_route\
 ## Write out final files
 #################################################
 define_process_corner -ext_model_index 0 X
-extract_parasitics -no_merge_via_res -ext_model_file $RCX_RULES -lef_res
+extract_parasitics -ext_model_file $RCX_RULES -lef_res
 
 write_db DesignLib
 
@@ -307,7 +307,8 @@ write_verilog $PNR_DIR/outputs/${TOP}.v
 write_verilog -include_pwr_gnd $PNR_DIR/outputs/${TOP}_pg.v
 write_def $PNR_DIR/outputs/${TOP}.def
 write_spef $PNR_DIR/outputs/${TOP}.spef
-write_library $PNR_DIR/outputs/${TOP}.lib
+write_abstract_lef $PNR_DIR/outputs/${TOP}.lef
+# write_timing_model $PNR_DIR/outputs/${TOP}.lib
 
  
 

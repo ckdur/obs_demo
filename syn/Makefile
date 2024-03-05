@@ -9,9 +9,12 @@ export TOP
 export ROOT_DIR
 export TECH
 
-all: $(TOP)_net.v
+SYN_NET=$(SYN_DIR)/outputs/$(TOP)_net.v
+OBS_NET=$(SYN_DIR)/outputs/$(TOP)_net.obs.v
 
-$(TOP)_net.v: $(SYN_DIR)/tcl/synthesis.tcl $(SYN_SRC) $(SYN_DIR)/tcl/rtl.sdc.tcl
+all: $(SYN_NET) $(OBS_NET)
+
+$(SYN_NET): $(SYN_DIR)/tcl/synthesis.tcl $(SYN_SRC) $(SYN_DIR)/tcl/rtl.sdc.tcl
 	yosys -h tcl $(SYN_DIR)/tcl/synthesis.tcl | tee -a yosys.log
 
 manual: $(SYN_DIR)/tcl/synthesis.tcl $(SYN_SRC) $(SYN_DIR)/tcl/rtl.sdc.tcl
@@ -20,8 +23,8 @@ manual: $(SYN_DIR)/tcl/synthesis.tcl $(SYN_SRC) $(SYN_DIR)/tcl/rtl.sdc.tcl
 clean:
 	rm -rfv *.log* *.cmd* *_intermediate.v *_net.v *.sdf fv reports outputs *.tstamp
 
-shuffle: $(SYN_DIR)/tcl/aleatorize.py $(SYN_DIR)/outputs/$(TOP)_net.v
-	python3 $(SYN_DIR)/tcl/aleatorize.py $(SYN_DIR)/outputs/$(TOP)_net.v $(SYN_DIR)/outputs/$(TOP)_net.obs.v $(LEVELS)
+$(OBS_NET): $(SYN_DIR)/tcl/aleatorize.py $(SYN_NET)
+	python3 $(SYN_DIR)/tcl/aleatorize.py $(SYN_NET) $(OBS_NET) $(LEVELS)
 
 .PHONY: clean
 

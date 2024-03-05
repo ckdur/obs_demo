@@ -15,16 +15,20 @@ export X
 export Y
 export TECH
 
-all: $(PNR_DIR)/outputs/$(TOP).gds
+#SYN_NET=$(SYN_DIR)/$(TOP)_net.v
+SYN_NET=$(SYN_DIR)/outputs/$(TOP)_net.obs.v
+export SYN_NET
 
-$(PNR_DIR)/outputs/$(TOP).gds: $(SYN_DIR)/$(TOP)_net.v $(PNR_DIR)/tcl/pnr.tcl
+all: $(PNR_DIR)/outputs/$(TOP).def
+
+$(PNR_DIR)/outputs/$(TOP).def: $(SYN_DIR)/$(TOP)_net.v $(PNR_DIR)/tcl/pnr.tcl
 	openroad -exit $(PNR_DIR)/tcl/pnr.tcl | tee -a openroad.log
 
 manual: $(SYN_DIR)/$(TOP)_net.v $(PNR_DIR)/tcl/pnr.tcl
 	openroad -gui $(PNR_DIR)/tcl/pnr.tcl | tee -a openroad.log
 
 clean:
-	rm -vrf fv/ *.post.v *.net.v *.cmd* *.log* *.jou *.rep *.sdf outputs reports *.cts timingReports *.rpt *.fp.tcl mp_data DBS encou* *.cts_trace *.rguide *.gds *.ctsrpt *.macro *.report *.map *.txt *.def .z0of .z1of .z2of *.old .cadence mp_data* *.ascii *.lef *.sdc *.spef .metalfill* DesignLib* *.spec *.size summaryReport verify_rpt
+	rm -vrf fv/ outputs reports *.size *.log DesignLib
 
 .PHONY: all manual clean
 
