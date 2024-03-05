@@ -5,5 +5,5 @@ Degate_*
 *.xml
 images/real_*
 images/toon
-images/
+images/__pycache__
 

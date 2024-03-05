@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- -->
+<!--M1_layout RGB( 217, 111, 39) #d96f27 -->
+<!--CUTMDCONT_layout RGB( 169, 140, 66) #a98c42 -->
+<!--CUTMDFILL_layout RGB( 143, 114, 33) #8f7221 -->
+<!--DIFFlayout RGB( 237, 154, 26) #ed9a1a -->
+<!--POLY_layout RGB( 237, 239, 94) #edef5e -->
+<!-- -->
+<!--M1_toon RGB( 230, 230, 0) #2cbd6e -->
+<!--PPLUS_toon RGB( 200, 200, 200) #e4e4e4 -->
+<!--CUTMDCONT_toon RGB( 0, 0, 0) #000000 -->
+<!--CUTMDFILL_toon RGB( 233, 193, 160) #a0e9c1 -->
+<!--DIFF_toon RGB( 255, 0, 0) #ff0000 -->
+<!--POLY_toon RGB( 0, 0, 255) #0000ff -->
+<layer-properties>
+ <properties>
+  <frame-color>#e4e4e4</frame-color>
+  <fill-color>#e4e4e4</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I0</dither-pattern>
+  <line-style>I0</line-style>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>psdm.drawing - 94/20</name>
+  <source>94/20@1</source>
+ </properties>
+ <properties>
+  <frame-color>#ff0000</frame-color>
+  <fill-color>#ff0000</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I0</dither-pattern>
+  <line-style>I0</line-style>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>diff.drawing - 65/20</name>
+  <source>65/20@1</source>
+ </properties>
+ <properties>
+  <frame-color>#0000ff</frame-color>
+  <fill-color>#0000ff</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I0</dither-pattern>
+  <line-style>I0</line-style>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>poly.drawing - 66/20</name>
+  <source>66/20@1</source>
+ </properties>
+ <properties>
+  <frame-color>#2cbd6e</frame-color>
+  <fill-color>#2cbd6e</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I0</dither-pattern>
+  <line-style>I0</line-style>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>li1.drawing - 67/20</name>
+  <source>67/20@1</source>
+ </properties>
+ <properties>
+  <frame-color>#a0e9c1</frame-color>
+  <fill-color>#a0e9c1</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I0</dither-pattern>
+  <line-style>I0</line-style>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>licon1.drawing - 66/44</name>
+  <source>66/44@1</source>
+ </properties>
+ <name>SKY130_SOLID</name>
+</layer-properties>
