@@ -1,4 +1,7 @@
 [submodule "aes"]
 	path = aes
 	url = https://github.com/secworks/aes.git
+[submodule "rev/src/Degate"]
+	path = rev/src/Degate
+	url = https://github.com/DegateCommunity/Degate.git
 

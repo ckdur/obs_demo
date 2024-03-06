@@ -37,7 +37,9 @@ else:
   raise StopIteration
 
 # Get the boundary and calculate the actual size of the png in pixels
-if 'dispw' in globals() and 'disph' in globals():
+if 'dispw' in globals() and 'disph' in globals() and 'dispx' in globals() and 'dispy' in globals():
+  box = pya.Box(float(dispx), float(dispy), float(dispx)+float(dispw), float(dispy)+float(disph))
+elif 'dispw' in globals() and 'disph' in globals():
   box = pya.Box(0, 0, float(dispw), float(disph))
 else:
   box = cell.dbbox()

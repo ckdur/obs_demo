@@ -1,6 +1,5 @@
-*
-!Makefile
-!.gitignore
-!tcl/
-!tcl/*
+aes
+*.o
+src/build
+src/.vscode
 

@@ -149,17 +149,18 @@ for top in toplst:
         if shape.is_text():
           if shape.text_string == p.name:
             pos = shape.text_dpos
-            x = (pos.x - box.left) / box.width() * widthd
-            y = (box.top - pos.y) / box.height() * heightd
+            x = (pos.x - box.left) * cfg.pxpermicron
+            y = (pos.y - box.bottom) * cfg.pxpermicron
         si.next()
       # Extract the direction from the verilog
       typ = "inout"
+      color = "#FF0000FF"
       if p.mode == "input":
         typ = "in"
       elif p.mode == "output":
         typ = "out"
       # create the dict for the xml output
-      port_dict[p.name] = {"x":x, "y":y, "fill-color":"#FF0000FF", "description":"", "type":typ, "id":idx}
+      port_dict[p.name] = {"x":x, "y":y, "fill-color":color, "description":"", "type":typ, "id":idx}
       idx = idx + 2
 
   # Export everything
@@ -191,12 +192,12 @@ for top in toplst:
       continue # Do not put this level in the XML
   
   # Export the gate in the xml
-  fo.write("  <gate name=\"{}\" logic-class=\"\" fill-color=\"#303030A0\" height=\"{}\" description=\"\" type-id=\"{}\" frame-color=\"#D9B032A0\" width=\"{}\">\n".format(top, heightd, type_id, width))
+  fo.write("  <gate name=\"{}\" logic-class=\"\" fill-color=\"#303030A0\" height=\"{}\" description=\"\" type-id=\"{}\" frame-color=\"#D9B032A0\" width=\"{}\">\n".format(top, heightd, type_id, widthd))
   type_id = type_id + 2
   fo.write("   <images>\n")
-  fo.write("    <image image=\"{}_metal.jpg\" layer-type=\"metal\"/>\n".format(top))
-  fo.write("    <image image=\"{}_logic.jpg\" layer-type=\"logic\"/>\n".format(top))
-  fo.write("    <image image=\"{}_tran.jpg\" layer-type=\"transistor\"/>\n".format(top))
+  fo.write("    <image image=\"{}_metal.tif\" layer-type=\"metal\"/>\n".format(top))
+  fo.write("    <image image=\"{}_logic.tif\" layer-type=\"logic\"/>\n".format(top))
+  fo.write("    <image image=\"{}_tran.tif\" layer-type=\"transistor\"/>\n".format(top))
   fo.write("   </images>\n")
   fo.write("   <ports>\n")
   for k, v in port_dict.items():

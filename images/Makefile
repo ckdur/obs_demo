@@ -19,11 +19,18 @@ REAL_LYP=$(ROOT_DIR)/images/$(TECH)_real.lyp
 
 CELLS=$(shell cat $(CELL_LIST))
 IMAGES_OUT = $(CELLS:%=$(TOON_OUT)/%.toon.png)
-ALL_REAL_OUT = $(CELLS:%=$(LIB_OUT)/%_metal.jpg)
+ALL_REAL_OUT = $(CELLS:%=$(LIB_OUT)/%_metal.tif)
 
 TOP_GDS=$(SIGN_DIR)/outputs/$(TOP).gds
 
-all: lib_real lib_out lib_toon top_real top_toon
+all:
+	make lib_real
+	make lib_out
+	make top_real
+	make lib_install
+	make lib_toon
+	make top_toon
+
 
 install: lib_install
 
@@ -33,14 +40,19 @@ lib_real: $(GDS) $(VERILOG)
 
 lib_out: $(ALL_REAL_OUT)
 
-$(LIB_OUT)/%_metal.jpg: $(LIB_OUT)/%.metal.png
+$(LIB_OUT)/%_metal.tif: $(LIB_OUT)/%.metal.png
 	convert $(LIB_OUT)/$*.full.png -transparent black $(LIB_OUT)/$*.t.full.png
 	convert $(LIB_OUT)/$*.tran.png -transparent black $(LIB_OUT)/$*.t.tran.png
 	convert $(LIB_OUT)/$*.metal.png -transparent black $(LIB_OUT)/$*.t.metal.png
-	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$*.t.metal.png\" \"$(LIB_OUT)/$*.r.metal.png\" \"$(LIB_OUT)/$*_metal.jpg\") (make-real-tran \"$(LIB_OUT)/$*.t.tran.png\" \"$(LIB_OUT)/$*.r.tran.png\" \"$(LIB_OUT)/$*_tran.jpg\") (make-real-final \"$(LIB_OUT)/$*.r.metal.png\" \"$(LIB_OUT)/$*.r.tran.png\" \"$(LIB_OUT)/$*_logic.jpg\")" -b "(gimp-quit 0)"
+	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$*.t.metal.png\" \"$(LIB_OUT)/$*.r.metal.png\" \"$(LIB_OUT)/$*_metal.png\") (make-real-tran \"$(LIB_OUT)/$*.t.tran.png\" \"$(LIB_OUT)/$*.r.tran.png\" \"$(LIB_OUT)/$*_tran.png\") (make-real-final \"$(LIB_OUT)/$*.r.metal.png\" \"$(LIB_OUT)/$*.r.tran.png\" \"$(LIB_OUT)/$*_logic.png\")" -b "(gimp-quit 0)"
+	convert $(LIB_OUT)/$*_metal.png $(LIB_OUT)/$*_metal.tif
+	convert $(LIB_OUT)/$*_logic.png $(LIB_OUT)/$*_logic.tif
+	convert $(LIB_OUT)/$*_tran.png $(LIB_OUT)/$*_tran.tif
 
 lib_install:
-	cp -v $(LIB_OUT)/*.jpg $(DEGATE_DIR)
+	make -C $(REV_DIR) clean
+	make -C $(REV_DIR) all
+	cp -v $(LIB_OUT)/*.tif $(DEGATE_DIR)
 	cp -v $(LIB_OUT)/*.xml $(DEGATE_DIR)
 
 lib_toon: $(IMAGES_OUT)
@@ -50,22 +62,25 @@ $(TOON_OUT)/%.toon.png: $(GDS)
 	@echo Attempting to extract $*
 	klayout -z -r make_toon.py -rd top=$* -rd infile=$(GDS) -rd outfile=$(TOON_OUT)/$*.toon.png -rd techname=$(TECH)
 
-top_real:$(LIB_OUT)/$(TOP).r.full.jpg
+top_real:$(LIB_OUT)/$(TOP).r.full.tif
 
-$(LIB_OUT)/$(TOP).r.full.jpg: $(TOP_GDS)
+$(LIB_OUT)/$(TOP).r.full.tif: $(TOP_GDS)
 	mkdir -p $(LIB_OUT)
-	klayout -z -r make_real.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(LIB_OUT)/$(TOP).real.png -rd outtranfile=$(LIB_OUT)/$(TOP).tran.png -rd outmetfile=$(LIB_OUT)/$(TOP).met.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH)
+	klayout -z -r make_real.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(LIB_OUT)/$(TOP).real.png -rd outtranfile=$(LIB_OUT)/$(TOP).tran.png -rd outmetfile=$(LIB_OUT)/$(TOP).met.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
 	convert $(LIB_OUT)/$(TOP).real.png -transparent black $(LIB_OUT)/$(TOP).t.real.png
 	convert $(LIB_OUT)/$(TOP).tran.png -transparent black $(LIB_OUT)/$(TOP).t.tran.png
 	convert $(LIB_OUT)/$(TOP).met.png -transparent black $(LIB_OUT)/$(TOP).t.met.png
-	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$(TOP).t.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.met.jpg\") (make-real-tran \"$(LIB_OUT)/$(TOP).t.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.jpg\") (make-real-final \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.full.jpg\")" -b "(gimp-quit 0)"
+	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$(TOP).t.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\") (make-real-tran \"$(LIB_OUT)/$(TOP).t.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\") (make-real-final \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.full.png\")" -b "(gimp-quit 0)"
+	convert $(LIB_OUT)/$(TOP).r.met.png $(LIB_OUT)/$(TOP).r.met.tif
+	convert $(LIB_OUT)/$(TOP).r.full.png $(LIB_OUT)/$(TOP).r.full.tif
+	convert $(LIB_OUT)/$(TOP).r.tran.png $(LIB_OUT)/$(TOP).r.tran.tif
 
 top_toon: $(TOON_OUT)/$(TOP).toon.png
 
 $(TOON_OUT)/$(TOP).toon.png: $(TOP_GDS)
 	mkdir -p $(TOON_OUT)
 	@echo Attempting to extract $(TOP)
-	klayout -z -r make_toon.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(TOON_OUT)/$(TOP).toon.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) 
+	klayout -z -r make_toon.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(TOON_OUT)/$(TOP).toon.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
 
 extract: $(TOP_GDS)
 	@echo Attempting to extract $(TOP)

@@ -9,8 +9,10 @@ PX?=4
 PY?=2
 PR?=0.8
 
-DISPW=300
-DISPH=300
+DISPX=100
+DISPY=100
+DISPW=100
+DISPH=100
 
 #######################################################
 # Rules to create the files. 
