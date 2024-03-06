@@ -3,7 +3,9 @@ import re
 import os, sys
 import importlib
 current = os.path.dirname(os.path.realpath(__file__))
+root_dir = os.getenv('ROOT_DIR')
 sys.path.insert(0, current)
+sys.path.insert(0, root_dir + "/lib")
 import verilog_parser as vlog
 
 # Arguments
@@ -28,7 +30,7 @@ lv = mw.view(lvi)
 
 # Load the layer props and the layout
 lv.load_layout(infile, 0)
-lv.load_layer_props("{}_real.lyp".format(techname))
+lv.load_layer_props("{}/lib/{}_real.lyp".format(root_dir, techname))
 
 # Get the max LVL 
 maxlvl = int(levels)

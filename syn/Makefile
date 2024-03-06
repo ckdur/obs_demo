@@ -1,4 +1,3 @@
-TECH?=sky130
 ROOT_DIR=$(abspath ..)
 include $(ROOT_DIR)/settings.mk
 SYN_DIR=$(abspath .)

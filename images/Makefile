@@ -3,10 +3,8 @@ include $(ROOT_DIR)/settings.mk
 SIGN_DIR=$(abspath ../signoff)
 REV_DIR=$(abspath ../rev)
 
-TECH?=sky130
-LEVELS=4
-RECLEVELS?=1
-TOP?=aes
+export ROOT_DIR
+
 DEGATE_DIR?=$(REV_DIR)/$(TOP)
 DEGATE_XML?=$(DEGATE_DIR)/lmodel.xml
 DEGATE_XML_LIB?=$(DEGATE_DIR)/gate_library.xml

@@ -2,7 +2,9 @@ import pya
 import os, sys, importlib
 
 current = os.path.dirname(os.path.realpath(__file__))
+root_dir = os.getenv('ROOT_DIR')
 sys.path.insert(0, current)
+sys.path.insert(0, root_dir + "/lib")
 
 cfg = importlib.import_module("{}_settings".format(techname))
 
@@ -19,7 +21,7 @@ lv = mw.view(lvi)
 
 # Load the layer props and the layout
 lv.load_layout(infile, 0)
-lv.load_layer_props("{}_real.lyp".format(techname))
+lv.load_layer_props("{}/lib/{}_real.lyp".format(root_dir, techname))
 
 # Put the layout TOP that we want to see
 for i in range(0, lv.cellviews()):
