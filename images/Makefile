@@ -32,11 +32,10 @@ all:
 	make lib_out
 	make top_real
 	make lib_install
+	make extract
+	make eval
 	make lib_toon
 	make top_toon
-
-
-install: lib_install
 
 lib_real: $(GDS) $(VERILOG)
 	mkdir -p $(LIB_OUT)
@@ -86,7 +85,10 @@ $(TOON_OUT)/$(TOP).toon.png: $(TOP_GDS)
 	@echo Attempting to extract $(TOP)
 	klayout -z -r make_toon.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(TOON_OUT)/$(TOP).toon.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
 
-extract: $(EXT_GDS)
+extract:
+	make -C $(REV_DIR) run_template
+
+eval: $(EXT_GDS)
 
 $(EXT_GDS): $(TOP_GDS) extract.py
 	@echo Attempting to extract $(TOP)

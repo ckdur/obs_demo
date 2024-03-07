@@ -28,7 +28,9 @@ set(LIBS ${LIBS} Qt6::Widgets Qt6::Gui Qt6::Core Qt6::Xml Qt6::OpenGL Qt6::OpenG
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Degate/src")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/")
-add_executable(create_degate main.cpp)
+add_executable(create_degate "create_degate.cpp")
+add_executable(run_template_matching "run_template_matching.cpp")
 
 message(STATUS "Libs: ${LIBS}")
 target_link_libraries(create_degate ${LIBS})
+target_link_libraries(run_template_matching ${LIBS})

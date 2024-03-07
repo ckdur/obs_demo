@@ -1,4 +1,4 @@
-aes
+aes*
 *.o
 src/build
 src/.vscode
