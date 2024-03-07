@@ -88,13 +88,13 @@ $(TOON_OUT)/$(TOP).toon.png: $(TOP_GDS)
 
 extract: $(EXT_GDS)
 
-$(EXT_GDS): $(TOP_GDS)
+$(EXT_GDS): $(TOP_GDS) extract.py
 	@echo Attempting to extract $(TOP)
-	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(DEGATE_XML) -rd inxmllib=$(DEGATE_XML_LIB) -rd outpngfile=$(EXT_PNG) -rd outgdsfile=$(EXT_GDS) -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
+	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(DEGATE_XML) -rd inxmllib=$(DEGATE_XML_LIB) -rd outpngfile=$(EXT_PNG) -rd outgdsfile=$(EXT_GDS) -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY) -rd output_stat=$(LIB_OUT)/$(TOP).stat
 	convert $(EXT_PNG) -transparent black $(EXT_T_PNG)
 
 view_extract: $(EXT_GDS)
-	klayout -s $(EXT_GDS) -l degate_detect.lyp
+	klayout -s $(EXT_GDS) -l $(ROOT_DIR)/lib/$(TECH)_degate_detect.lyp
 
 clean:
 	rm -rfv *.png *.log *.xml $(LIB_OUT) $(TOON_OUT)

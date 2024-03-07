@@ -98,7 +98,17 @@ def filter_non_intersect(insts, found):
     else:
       yield inst
 
+def filter_inside(insts, container):
+  for inst in insts:
+    if inst.inside(container):
+      yield inst
+
+
 # Parse the detected XML
+print("Parsing XML and evaluating 'found, detected and wrong'")
+n_detected = 0
+n_wrong = 0
+n_notdetected = 0
 tree = ET.parse(inxmlfile)
 root = tree.getroot()
 for model in root.iter("logic-model"):
@@ -119,23 +129,60 @@ for model in root.iter("logic-model"):
         print(lib[libid]["name"], inboxes[0])
         if lib[libid]["name"] == inboxes[0][0]:
           cell.shapes(detected).insert(inboxes[0][2])
+          n_detected = n_detected + 1
         else:
           cell.shapes(wrong).insert(inboxes[0][2])
+          n_wrong = n_wrong + 1
       else:
         print(lib[libid]["name"], "No instances")
 
+all_insts = [p_inst.dbbox() for p_inst in cell.each_inst()]
+insts = list(filter_inside(all_insts, pya.DBox(box)))
+
 # Find the non-detected
-for k, v in lib.items():
-  insts = list(extract_insts(cell, v["name"]))
-  #print(v["name"], insts)
-  fints = list(filter_non_intersect(insts, v["found"]))
+print("Finding the non-detected")
+
+bound_to_degate_lib = False
+if not bound_to_degate_lib:
+  all_found = []
+  for k, v in lib.items():
+    all_found.extend(v["found"])
+  fints = list(filter_non_intersect(insts, all_found))
   for fint in fints:
-    print("{} not recognized: {}".format(v["name"], fint))
-    cell.shapes(notdetected).insert(fint)
+      cell.shapes(notdetected).insert(fint)
+      n_notdetected = n_notdetected + 1
+else:
+  for k, v in lib.items():
+    all_insts = list(extract_insts(cell, v["name"]))
+    insts = list(filter_inside(all_insts, pya.DBox(box)))
+    # print(v["name"], insts)
+    fints = list(filter_non_intersect(insts, v["found"]))
+    for fint in fints:
+      print("{} not recognized: {}".format(v["name"], fint))
+      cell.shapes(notdetected).insert(fint)
+      n_notdetected = n_notdetected + 1
+
+n_all_insts = len(insts)
 
 # Do zoom box and save image
 lv.load_layer_props("degate_detect.lyp")
 lv.zoom_box(box)
 lv.save_image(outpngfile, width, height)
 layout.write(outgdsfile)
+
+p_detected = n_detected / n_all_insts * 100
+p_wrong = n_wrong / n_all_insts * 100
+p_notdetected = n_notdetected / n_all_insts * 100
+if "output_stat" in globals():
+  with open(output_stat, "w") as f:
+    f.write("Statistics\n")
+    f.write("  detected = {}/{} ({:.3}%)\n".format(n_detected, n_all_insts, p_detected))
+    f.write("  wrong = {}/{} ({:.3}%)\n".format(n_wrong, n_all_insts, p_wrong))
+    f.write("  not detected = {}/{} ({:.3}%)\n".format(n_notdetected, n_all_insts, p_notdetected))
+
+print("Statistics")
+print("  detected = {}/{} ({:.3}%)".format(n_detected, n_all_insts, p_detected))
+print("  wrong = {}/{} ({:.3}%)".format(n_wrong, n_all_insts, p_wrong))
+print("  not detected = {}/{} ({:.3}%)".format(n_notdetected, n_all_insts, p_notdetected))
+
 
