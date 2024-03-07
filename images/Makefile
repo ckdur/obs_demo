@@ -23,6 +23,10 @@ ALL_REAL_OUT = $(CELLS:%=$(LIB_OUT)/%_metal.tif)
 
 TOP_GDS=$(SIGN_DIR)/outputs/$(TOP).gds
 
+EXT_GDS=$(LIB_OUT)/$(TOP)_rec_$(RECLEVELS).degate_detect.gds
+EXT_PNG=$(LIB_OUT)/$(TOP)_rec_$(RECLEVELS).degate_detect.png
+EXT_T_PNG=$(LIB_OUT)/$(TOP)_rec_$(RECLEVELS).t.degate_detect.png
+
 all:
 	make lib_real
 	make lib_out
@@ -82,10 +86,15 @@ $(TOON_OUT)/$(TOP).toon.png: $(TOP_GDS)
 	@echo Attempting to extract $(TOP)
 	klayout -z -r make_toon.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd outfile=$(TOON_OUT)/$(TOP).toon.png -rd techname=$(TECH) -rd dispw=$(DISPW) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
 
-extract: $(TOP_GDS)
+extract: $(EXT_GDS)
+
+$(EXT_GDS): $(TOP_GDS)
 	@echo Attempting to extract $(TOP)
-	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(XML) -rd inxmllib=$(XML_LIB) -rd outpngfile=$(TOP)_rec_$(RECLEVELS).degate_detect.png -rd outgdsfile=$(TOP)_rec_$(RECLEVELS).degate_detect.gds
-	convert $(TOP)_rec_$(RECLEVELS).degate_detect.png -transparent black $(TOP)_rec_$(RECLEVELS).t.degate_detect.png
+	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(DEGATE_XML) -rd inxmllib=$(DEGATE_XML_LIB) -rd outpngfile=$(EXT_PNG) -rd outgdsfile=$(EXT_GDS) -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY)
+	convert $(EXT_PNG) -transparent black $(EXT_T_PNG)
+
+view_extract: $(EXT_GDS)
+	klayout -s $(EXT_GDS) -l degate_detect.lyp
 
 clean:
 	rm -rfv *.png *.log *.xml $(LIB_OUT) $(TOON_OUT)
