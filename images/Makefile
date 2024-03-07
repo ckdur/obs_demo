@@ -73,10 +73,10 @@ $(LIB_OUT)/$(TOP).r.full.tif: $(TOP_GDS)
 	convert $(LIB_OUT)/$(TOP).real.png -transparent black $(LIB_OUT)/$(TOP).t.real.png
 	convert $(LIB_OUT)/$(TOP).tran.png -transparent black $(LIB_OUT)/$(TOP).t.tran.png
 	convert $(LIB_OUT)/$(TOP).met.png -transparent black $(LIB_OUT)/$(TOP).t.met.png
-	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$(TOP).t.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\") (make-real-tran \"$(LIB_OUT)/$(TOP).t.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\") (make-real-final \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.full.png\")" -b "(gimp-quit 0)"
-	convert $(LIB_OUT)/$(TOP).r.met.png $(LIB_OUT)/$(TOP).r.met.tif
+	gimp -ifs -b "(load \"layerfx.scm\") (load \"make_real.scm\") (make-real-metal \"$(LIB_OUT)/$(TOP).t.met.png\" \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).o.met.png\") (make-real-tran \"$(LIB_OUT)/$(TOP).t.tran.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).o.tran.png\") (make-real-final \"$(LIB_OUT)/$(TOP).r.met.png\" \"$(LIB_OUT)/$(TOP).r.tran.png\" \"$(LIB_OUT)/$(TOP).r.full.png\")" -b "(gimp-quit 0)"
+	convert $(LIB_OUT)/$(TOP).o.met.png $(LIB_OUT)/$(TOP).r.met.tif
 	convert $(LIB_OUT)/$(TOP).r.full.png $(LIB_OUT)/$(TOP).r.full.tif
-	convert $(LIB_OUT)/$(TOP).r.tran.png $(LIB_OUT)/$(TOP).r.tran.tif
+	convert $(LIB_OUT)/$(TOP).o.tran.png $(LIB_OUT)/$(TOP).r.tran.tif
 
 top_toon: $(TOON_OUT)/$(TOP).toon.png
 
