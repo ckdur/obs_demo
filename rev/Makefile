@@ -14,12 +14,12 @@ all: $(DEGATE) $(CREATE_DEGATE) $(RUN_TEMPLATE_DEGATE)
 
 $(CREATE_DEGATE) $(RUN_TEMPLATE_DEGATE): $(DEGATE) $(REV_DIR)/src/CMakeLists.txt
 	mkdir -p $(REV_DIR)/src/build/
-	cd $(REV_DIR)/src/build && cmake $(REV_DIR)/src
+	cd $(REV_DIR)/src/build && cmake $(REV_DIR)/src -DBoost_USE_STATIC_LIBS=OFF
 	make -C $(REV_DIR)/src/build
 
 $(DEGATE): $(DEGATE_GIT)/CMakeLists.txt
 	mkdir -p $(DEGATE_GIT)/build/
-	cd $(DEGATE_GIT)/build && cmake $(DEGATE_GIT)
+	cd $(DEGATE_GIT)/build && cmake $(DEGATE_GIT) -DBoost_USE_STATIC_LIBS=OFF
 	make -C $(DEGATE_GIT)/build
 
 run_template: $(RUN_TEMPLATE_DEGATE)
