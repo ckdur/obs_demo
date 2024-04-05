@@ -23,7 +23,9 @@ cell_matrix = [["BUFFD1", "BUFFD1_1"],
 ["ND2D1", "ND2D1_1", "ND2D1_2", "ND2D1_3"],
 ["NR2D1", "NR2D1_1", "NR2D1_2", "NR2D1_3"],
 ["OR2D1", "OR2D1_1", "OR2D1_2", "OR2D1_3"],
-["MUX2D1", "MUX2D1_1", "MUX2D1_2", "MUX2D1_3"]]
+["MUX2D1", "MUX2D1_1", "MUX2D1_2", "MUX2D1_3"],
+["XOR2D1", "XOR2D1_1", "XOR2D1_2", "XOR2D1_3"],
+["XNR2D1", "XNR2D1_1", "XNR2D1_2", "XNR2D1_3"]]
 count = 0
 # Strips the newline character
 for line in Lines:

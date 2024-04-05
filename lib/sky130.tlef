@@ -54,7 +54,7 @@ END unithddbl
 SITE obssite
   SYMMETRY Y ;
   CLASS CORE ;
-  SIZE 0.34 BY 4.08 ;
+  SIZE 0.36 BY 6.12 ;
 END obssite
 
 LAYER nwell
