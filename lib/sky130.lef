@@ -3625,6 +3625,192 @@ END DFQD1_3
 
 #--------EOF---------
 
+MACRO FILL1
+  CLASS CORE ;
+  FOREIGN FILL1 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 0.360 BY 6.120 ;
+  SYMMETRY X Y R90 ;
+  SITE obssite ;
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 -0.085 0.360 0.085 ;
+      LAYER mcon ;
+        RECT 0.095 -0.085 0.265 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.135 0.360 0.135 ;
+    END
+  END vss
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 6.035 0.360 6.205 ;
+      LAYER mcon ;
+        RECT 0.095 6.035 0.265 6.205 ;
+      LAYER met1 ;
+        RECT 0.000 5.985 0.360 6.255 ;
+    END
+  END vdd
+  OBS
+      LAYER nwell ;
+        RECT -0.180 2.860 0.540 6.445 ;
+  END
+END FILL1
+
+#--------EOF---------
+
+MACRO FILL2
+  CLASS CORE ;
+  FOREIGN FILL2 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 0.720 BY 6.120 ;
+  SYMMETRY X Y R90 ;
+  SITE obssite ;
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 -0.085 0.720 0.085 ;
+      LAYER mcon ;
+        RECT 0.095 -0.085 0.265 0.085 ;
+        RECT 0.455 -0.085 0.625 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.135 0.720 0.135 ;
+    END
+  END vss
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 6.035 0.720 6.205 ;
+      LAYER mcon ;
+        RECT 0.095 6.035 0.265 6.205 ;
+        RECT 0.455 6.035 0.625 6.205 ;
+      LAYER met1 ;
+        RECT 0.000 5.985 0.720 6.255 ;
+    END
+  END vdd
+  OBS
+      LAYER nwell ;
+        RECT -0.180 2.860 0.900 6.445 ;
+  END
+END FILL2
+
+#--------EOF---------
+
+MACRO FILL4
+  CLASS CORE ;
+  FOREIGN FILL4 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 1.440 BY 6.120 ;
+  SYMMETRY X Y R90 ;
+  SITE obssite ;
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 -0.085 1.440 0.085 ;
+      LAYER mcon ;
+        RECT 0.095 -0.085 0.265 0.085 ;
+        RECT 0.455 -0.085 0.625 0.085 ;
+        RECT 0.815 -0.085 0.985 0.085 ;
+        RECT 1.175 -0.085 1.345 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.135 1.440 0.135 ;
+    END
+  END vss
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 6.035 1.440 6.205 ;
+      LAYER mcon ;
+        RECT 0.095 6.035 0.265 6.205 ;
+        RECT 0.455 6.035 0.625 6.205 ;
+        RECT 0.815 6.035 0.985 6.205 ;
+        RECT 1.175 6.035 1.345 6.205 ;
+      LAYER met1 ;
+        RECT 0.000 5.985 1.440 6.255 ;
+    END
+  END vdd
+  OBS
+      LAYER nwell ;
+        RECT -0.180 2.860 1.620 6.445 ;
+  END
+END FILL4
+
+#--------EOF---------
+
+MACRO FILL8
+  CLASS CORE ;
+  FOREIGN FILL8 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 2.880 BY 6.120 ;
+  SYMMETRY X Y R90 ;
+  SITE obssite ;
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 -0.085 2.880 0.085 ;
+      LAYER mcon ;
+        RECT 0.095 -0.085 0.265 0.085 ;
+        RECT 0.455 -0.085 0.625 0.085 ;
+        RECT 0.815 -0.085 0.985 0.085 ;
+        RECT 1.175 -0.085 1.345 0.085 ;
+        RECT 1.535 -0.085 1.705 0.085 ;
+        RECT 1.895 -0.085 2.065 0.085 ;
+        RECT 2.255 -0.085 2.425 0.085 ;
+        RECT 2.615 -0.085 2.785 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.135 2.880 0.135 ;
+    END
+  END vss
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 6.035 2.880 6.205 ;
+      LAYER mcon ;
+        RECT 0.095 6.035 0.265 6.205 ;
+        RECT 0.455 6.035 0.625 6.205 ;
+        RECT 0.815 6.035 0.985 6.205 ;
+        RECT 1.175 6.035 1.345 6.205 ;
+        RECT 1.535 6.035 1.705 6.205 ;
+        RECT 1.895 6.035 2.065 6.205 ;
+        RECT 2.255 6.035 2.425 6.205 ;
+        RECT 2.615 6.035 2.785 6.205 ;
+      LAYER met1 ;
+        RECT 0.000 5.985 2.880 6.255 ;
+    END
+  END vdd
+  OBS
+      LAYER nwell ;
+        RECT -0.180 2.860 3.060 6.445 ;
+  END
+END FILL8
+
+#--------EOF---------
+
 MACRO INVD1
   CLASS CORE ;
   FOREIGN INVD1 ;

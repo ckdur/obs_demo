@@ -59,7 +59,7 @@ if {![file exists reports]} {
 set BUFCells [list BUFFD1]
 set INVCells [list INVD1]
 # TODO
-set FILLERCells [list ]
+set FILLERCells [list FILL1 FILL2 FILL4 FILL8]
 set DCAPCells [list ]
 set DIODECells [list ]
 
@@ -281,6 +281,11 @@ set_propagated_clock [all_clocks]
 set_macro_extension 0
 
 global_route -congestion_iterations 50 -verbose -congestion_report_file $PNR_DIR/reports/congestion.rpt
+
+###############################################
+# Fillers
+###############################################
+filler_placement "$FILLERCells"
 
 ###############################################
 # Detail routing
