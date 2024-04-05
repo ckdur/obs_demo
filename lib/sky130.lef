@@ -3815,7 +3815,7 @@ MACRO INVD1
   CLASS CORE ;
   FOREIGN INVD1 ;
   ORIGIN 0.000 0.000 ;
-  SIZE 2.160 BY 6.120 ;
+  SIZE 1.800 BY 6.120 ;
   SYMMETRY X Y R90 ;
   SITE obssite ;
   PIN z
@@ -3847,16 +3847,15 @@ MACRO INVD1
       LAYER li1 ;
         RECT 1.195 0.920 1.525 1.090 ;
         RECT 1.275 0.085 1.445 0.920 ;
-        RECT 0.000 -0.085 2.160 0.085 ;
+        RECT 0.000 -0.085 1.800 0.085 ;
       LAYER mcon ;
         RECT 0.095 -0.085 0.265 0.085 ;
         RECT 0.455 -0.085 0.625 0.085 ;
         RECT 0.815 -0.085 0.985 0.085 ;
         RECT 1.175 -0.085 1.345 0.085 ;
         RECT 1.535 -0.085 1.705 0.085 ;
-        RECT 1.895 -0.085 2.065 0.085 ;
       LAYER met1 ;
-        RECT 0.000 -0.135 2.160 0.135 ;
+        RECT 0.000 -0.135 1.800 0.135 ;
     END
   END vss
   PIN vdd
@@ -3865,7 +3864,7 @@ MACRO INVD1
     SHAPE ABUTMENT ;
     PORT
       LAYER li1 ;
-        RECT 0.000 6.035 2.160 6.205 ;
+        RECT 0.000 6.035 1.800 6.205 ;
         RECT 1.275 5.200 1.445 6.035 ;
         RECT 1.195 5.030 1.525 5.200 ;
       LAYER mcon ;
@@ -3874,14 +3873,13 @@ MACRO INVD1
         RECT 0.815 6.035 0.985 6.205 ;
         RECT 1.175 6.035 1.345 6.205 ;
         RECT 1.535 6.035 1.705 6.205 ;
-        RECT 1.895 6.035 2.065 6.205 ;
       LAYER met1 ;
-        RECT 0.000 5.985 2.160 6.255 ;
+        RECT 0.000 5.985 1.800 6.255 ;
     END
   END vdd
   OBS
       LAYER nwell ;
-        RECT -0.180 2.860 2.340 6.445 ;
+        RECT -0.180 2.860 1.980 6.445 ;
       LAYER pwell ;
         RECT 0.005 0.730 1.635 1.690 ;
   END
@@ -9384,6 +9382,69 @@ MACRO OR2D1_3
         RECT 2.275 0.920 2.605 1.090 ;
   END
 END OR2D1_3
+
+#--------EOF---------
+
+MACRO TAPCELL
+  CLASS CORE ;
+  FOREIGN TAPCELL ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 2.160 BY 6.120 ;
+  SYMMETRY X Y R90 ;
+  SITE obssite ;
+  PIN vss
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER pwell ;
+        RECT 0.265 0.730 2.015 1.690 ;
+      LAYER li1 ;
+        RECT 0.435 0.980 0.765 1.150 ;
+        RECT 0.975 0.980 1.305 1.150 ;
+        RECT 1.515 0.980 1.845 1.150 ;
+        RECT 0.515 0.085 0.685 0.980 ;
+        RECT 1.055 0.085 1.225 0.980 ;
+        RECT 1.595 0.085 1.765 0.980 ;
+        RECT 0.000 -0.085 2.160 0.085 ;
+      LAYER mcon ;
+        RECT 0.095 -0.085 0.265 0.085 ;
+        RECT 0.455 -0.085 0.625 0.085 ;
+        RECT 0.815 -0.085 0.985 0.085 ;
+        RECT 1.175 -0.085 1.345 0.085 ;
+        RECT 1.535 -0.085 1.705 0.085 ;
+        RECT 1.895 -0.085 2.065 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.135 2.160 0.135 ;
+    END
+  END vss
+  PIN vdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    PORT
+      LAYER nwell ;
+        RECT -0.180 2.860 2.340 6.445 ;
+      LAYER li1 ;
+        RECT 0.000 6.035 2.160 6.205 ;
+        RECT 0.515 5.140 0.685 6.035 ;
+        RECT 1.055 5.140 1.225 6.035 ;
+        RECT 1.595 5.140 1.765 6.035 ;
+        RECT 0.435 4.970 0.765 5.140 ;
+        RECT 0.975 4.970 1.305 5.140 ;
+        RECT 1.515 4.970 1.845 5.140 ;
+      LAYER mcon ;
+        RECT 0.095 6.035 0.265 6.205 ;
+        RECT 0.455 6.035 0.625 6.205 ;
+        RECT 0.815 6.035 0.985 6.205 ;
+        RECT 1.175 6.035 1.345 6.205 ;
+        RECT 1.535 6.035 1.705 6.205 ;
+        RECT 1.895 6.035 2.065 6.205 ;
+      LAYER met1 ;
+        RECT 0.000 5.985 2.160 6.255 ;
+    END
+  END vdd
+END TAPCELL
 
 #--------EOF---------
 

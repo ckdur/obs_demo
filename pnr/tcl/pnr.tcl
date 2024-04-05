@@ -60,6 +60,7 @@ set BUFCells [list BUFFD1]
 set INVCells [list INVD1]
 # TODO
 set FILLERCells [list FILL1 FILL2 FILL4 FILL8]
+set TAPCells [list TAPCELL]
 set DCAPCells [list ]
 set DIODECells [list ]
 
@@ -143,6 +144,14 @@ make_tracks met4 -x_offset 0.46 -x_pitch 0.92 -y_offset 0.46 -y_pitch 0.92
 make_tracks met5 -x_offset 1.70 -x_pitch 3.40 -y_offset 1.70 -y_pitch 3.40
 
 ####################################
+## Tapcell insertion
+####################################
+
+tapcell\
+    -distance 13\
+    -tapcell_master "$TAPCells"
+
+####################################
 ## Power planning & SRAMs placement
 ####################################
 
@@ -215,7 +224,7 @@ place_pins -random \
 	-ver_layers met2
 
 # -density 1.0 -overflow 0.9 -init_density_penalty 0.0001 -initial_place_max_iter 20 -bin_grid_count 64
-global_placement -density 0.81
+global_placement -density 0.85
 
 # TODO: Check resize.tcl, as it checks the size of the buffering
 
