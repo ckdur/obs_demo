@@ -569,3 +569,71 @@ M_M53 n23 a1 vdd vdd pfet_01v8 l=1.500e-07 w=5.000e-07
 
 ******* EOF
 
+** Created by: circuit_gen.FILL1
+** Cell name: FILL1
+** Lib name: sky130
+.SUBCKT FILL1 vdd vss
+*.PININFO vdd:B vss:B 
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL1
+** Cell name: FILL1
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL2
+** Cell name: FILL2
+** Lib name: sky130
+.SUBCKT FILL2 vdd vss
+*.PININFO vdd:B vss:B 
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL2
+** Cell name: FILL2
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL4
+** Cell name: FILL4
+** Lib name: sky130
+.SUBCKT FILL4 vdd vss
+*.PININFO vdd:B vss:B 
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL4
+** Cell name: FILL4
+** Lib name: sky130
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL8
+** Cell name: FILL8
+** Lib name: sky130
+.SUBCKT FILL8 vdd vss
+*.PININFO vdd:B vss:B 
+.ENDS
+
+
+******* EOF
+
+** Created by: circuit_gen.FILL8
+** Cell name: FILL8
+** Lib name: sky130
+
+
+******* EOF
+
