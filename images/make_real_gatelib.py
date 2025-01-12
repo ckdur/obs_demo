@@ -71,7 +71,8 @@ for top in toplst:
     try: 
       for cell in layout.each_cell():
         if cell.name == top:
-          lv.select_cell(cell.cell_index(), lv.active_cellview_index())
+          #lv.select_cell(cell.cell_index(), lv.active_cellview_index())
+          lv.select_cell(cell.cell_index(), i)
           thislayout = cell.layout()
           raise StopIteration
     except:

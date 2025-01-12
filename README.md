@@ -14,23 +14,12 @@ digital circuit.
 
 The project requires the instalation of open-source tools for chip integration.
 
-
 # Running the demo
 
-The demo consist of three phases, which is the layout generation, the image 
-extraction, and a demo of a possible reverse-engineering process.
+Please just see the submission of VLSI24 make-a-chip for details.
 
-## Generating the layout
+The submission can be seen in:
 
-## Image extraction
-
-## Simulating a reverse-engineering scenario
-
-# Problems
-
-1. The cells does not pass DRC. This is a product of a beta standard cell
-generator which is not released.
-
-2. 
+[VLSI24 SSCS Code-A-Chip](https://github.com/ckdur/sscs-ose-code-a-chip.github.io/blob/main/VLSI24/submitted_notebooks/obs_demo/obs_demo.ipynb)
 
 
