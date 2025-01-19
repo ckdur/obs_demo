@@ -59,7 +59,7 @@ lib_install: $(XML_FILE)
 	make -C $(REV_DIR) clean
 	make -C $(REV_DIR) all
 	cp -v $(LIB_OUT)/*.tif $(DEGATE_DIR)
-	cp -v $(XML_FILE) $(DEGATE_DIR)/gate_library.xml
+	cp -v $(XML_FILE) $(DEGATE_XML_LIB)
 
 lib_toon: $(IMAGES_OUT)
 
@@ -95,7 +95,7 @@ eval: $(EXT_GDS)
 
 $(EXT_GDS): $(TOP_GDS) extract.py
 	@echo Attempting to extract $(TOP)
-	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(DEGATE_XML) -rd inxmllib=$(DEGATE_XML_LIB) -rd outpngfile=$(EXT_PNG) -rd outgdsfile=$(EXT_GDS) -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY) -rd output_stat=$(LIB_OUT)/$(TOP).stat
+	klayout -z -r extract.py -rd top=$(TOP) -rd infile=$(TOP_GDS) -rd inxmlfile=$(DEGATE_XML) -rd inxmllib=$(DEGATE_XML_LIB) -rd outpngfile=$(EXT_PNG) -rd outgdsfile=$(EXT_GDS) -rd techname=$(TECH) -rd dispw=$(DISPW) -rd disph=$(DISPH) -rd dispx=$(DISPX) -rd dispy=$(DISPY) -rd output_stat=$(LIB_OUT)/$(TOP)_r$(RECLEVELS).stat
 	convert $(EXT_PNG) -transparent black $(EXT_T_PNG)
 
 view_extract: $(EXT_GDS)
