@@ -9,8 +9,8 @@ CREATE_DEGATE=$(REV_DIR)/src/build/create_degate
 RUN_TEMPLATE_DEGATE=$(REV_DIR)/src/build/run_template_matching
 
 all: $(DEGATE) $(CREATE_DEGATE) $(RUN_TEMPLATE_DEGATE)
-	mkdir -p $(REV_DIR)/$(TOP)
-	$(CREATE_DEGATE) $(TOP) $(REV_DIR)/$(TOP) $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.met.tif $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.full.tif $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.tran.tif
+	mkdir -p $(REV_DIR)/$(TOP)_r$(RECLEVELS)
+	$(CREATE_DEGATE) $(TOP)_r$(RECLEVELS) $(REV_DIR)/$(TOP)_r$(RECLEVELS) $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.met.tif $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.full.tif $(IMG_DIR)/real_$(LEVELS)/$(TOP).r.tran.tif
 
 $(CREATE_DEGATE) $(RUN_TEMPLATE_DEGATE): $(DEGATE) $(REV_DIR)/src/CMakeLists.txt
 	mkdir -p $(REV_DIR)/src/build/
@@ -23,13 +23,13 @@ $(DEGATE): $(DEGATE_GIT)/CMakeLists.txt
 	make -C $(DEGATE_GIT)/build
 
 run_template: $(RUN_TEMPLATE_DEGATE)
-	$(RUN_TEMPLATE_DEGATE) $(TOP) $(REV_DIR)/$(TOP)
+	time $(RUN_TEMPLATE_DEGATE) $(TOP)_r$(RECLEVELS) $(REV_DIR)/$(TOP)_r$(RECLEVELS)
 
 manual: $(DEGATE)
 	$(DEGATE)
 
 clean:
-	rm -rf $(TOP)
+	rm -rf $(TOP) $(TOP)_r$(RECLEVELS)
 
 .PHONY: manual clean
 

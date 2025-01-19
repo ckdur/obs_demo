@@ -5,7 +5,7 @@ REV_DIR=$(abspath ../rev)
 
 export ROOT_DIR
 
-DEGATE_DIR?=$(REV_DIR)/$(TOP)
+DEGATE_DIR?=$(REV_DIR)/$(TOP)_r$(RECLEVELS)
 DEGATE_XML?=$(DEGATE_DIR)/lmodel.xml
 DEGATE_XML_LIB?=$(DEGATE_DIR)/gate_library.xml
 
@@ -37,9 +37,12 @@ all:
 	make lib_toon
 	make top_toon
 
-lib_real: $(GDS) $(VERILOG)
+XML_FILE=$(LIB_OUT)/gate_library.$(RECLEVELS).xml
+$(XML_FILE): $(GDS) $(VERILOG)
 	mkdir -p $(LIB_OUT)
-	klayout -z -r make_real_gatelib.py -rd toplist=$(CELL_LIST) -rd infile=$(GDS) -rd outxmlfile=$(LIB_OUT)/gate_library.xml -rd invfile=$(VERILOG) -rd libout=$(LIB_OUT) -rd levels=$(RECLEVELS) -rd techname=$(TECH)
+	klayout -z -r make_real_gatelib.py -rd toplist=$(CELL_LIST) -rd infile=$(GDS) -rd outxmlfile=$(LIB_OUT)/gate_library.$(RECLEVELS).xml -rd invfile=$(VERILOG) -rd libout=$(LIB_OUT) -rd levels=$(RECLEVELS) -rd techname=$(TECH)
+
+lib_real: $(XML_FILE)
 
 lib_out: $(ALL_REAL_OUT)
 
@@ -52,11 +55,11 @@ $(LIB_OUT)/%_metal.tif: $(LIB_OUT)/%.metal.png
 	convert $(LIB_OUT)/$*_logic.png $(LIB_OUT)/$*_logic.tif
 	convert $(LIB_OUT)/$*_tran.png $(LIB_OUT)/$*_tran.tif
 
-lib_install:
+lib_install: $(XML_FILE)
 	make -C $(REV_DIR) clean
 	make -C $(REV_DIR) all
 	cp -v $(LIB_OUT)/*.tif $(DEGATE_DIR)
-	cp -v $(LIB_OUT)/*.xml $(DEGATE_DIR)
+	cp -v $(XML_FILE) $(DEGATE_DIR)/gate_library.xml
 
 lib_toon: $(IMAGES_OUT)
 
