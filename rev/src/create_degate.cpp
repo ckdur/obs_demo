@@ -4,17 +4,19 @@
 #include "Core/Project/ProjectExporter.h"
 #include "Core/LogicModel/LogicModelHelper.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace degate;
 
 int main(int argc, char* argv[])
 {
-    if(argc < 6) {
-        std::cout << "USAGE: " << argv[0] << " name dir layer_metal.tiff layer_full.tiff layer_full.tiff" << std::endl;
+    if(argc < 7) {
+        std::cout << "USAGE: " << argv[0] << " name dir layer_metal.tiff layer_full.tiff layer_full.tiff lambda" << std::endl;
         return 1;
     }
     std::string project_name(argv[1]);
     std::string project_directory(argv[2]);
+    length_t lambda = (length_t)atoi(argv[6]);
 
     QImageReader reader(argv[3]);
     QSize size = reader.size();
@@ -31,6 +33,7 @@ int main(int argc, char* argv[])
                     project_type,
                     3);
     project.set_name(project_name);
+    project.set_lambda(lambda);
     LogicModel::layer_collection layer_collection;
 
     for(int i = 0; i < 3; i++) {
