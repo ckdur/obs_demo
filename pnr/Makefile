@@ -25,7 +25,7 @@ $(PNR_DIR)/outputs/$(TOP).def: $(SYN_DIR)/$(TOP)_net.v $(PNR_DIR)/tcl/pnr.tcl
 	openroad -exit $(PNR_DIR)/tcl/pnr.tcl | tee -a openroad.log
 
 manual: $(SYN_DIR)/$(TOP)_net.v $(PNR_DIR)/tcl/pnr.tcl
-	openroad -gui $(PNR_DIR)/tcl/pnr.tcl | tee -a openroad.log
+	gdb --args openroad -gui $(PNR_DIR)/tcl/pnr.tcl
 
 clean:
 	rm -vrf fv/ outputs reports *.size *.log DesignLib
