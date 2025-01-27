@@ -5,6 +5,7 @@
 #include "Core/Project/ProjectExporter.h"
 #include "Core/Matching/TemplateMatching.h"
 #include "Core/LogicModel/LogicModelHelper.h"
+#include "GUI/Preferences/PreferencesHandler.h"
 #include <iostream>
 
 using namespace degate;
@@ -12,9 +13,23 @@ using namespace degate;
 int main(int argc, char* argv[])
 {
     if(argc < 3) {
-        std::cout << "USAGE: " << argv[0] << " name dir" << std::endl;
+        std::cout << "USAGE: " << argv[0] << " name dir [th_hill] [th_in]" << std::endl;
         return 1;
     }
+    // Put some preferences before everything
+    auto pref = PREFERENCES_HANDLER.get_preferences();
+    std::cout << "Prev threads = " << pref.max_concurrent_thread_count << std::endl;
+    std::cout << "Prev cache (MB) = " << pref.cache_size << std::endl;
+    std::cout << "Prev img cache (MB) = " << pref.image_importer_cache_size << std::endl;
+    pref.cache_size = 16*1024; // 16GB
+    pref.image_importer_cache_size = 16*1024; // 16GB
+    pref.max_concurrent_thread_count = 10; // 10 threads
+    PREFERENCES_HANDLER.update(pref);
+    PREFERENCES_HANDLER.save();
+    std::cout << "New threads = " << PREFERENCES_HANDLER.get_preferences().max_concurrent_thread_count << std::endl;
+    std::cout << "Prev cache (MB) = " << PREFERENCES_HANDLER.get_preferences().cache_size << std::endl;
+    std::cout << "New img cache (MB) = " << PREFERENCES_HANDLER.get_preferences().image_importer_cache_size << std::endl;
+    
     std::string project_name(argv[1]);
     std::string project_directory(argv[2]);
 
@@ -63,8 +78,14 @@ int main(int argc, char* argv[])
     orientations_list.push_back(Gate::ORIENTATION_FLIPPED_LEFT_RIGHT);
     orientations_list.push_back(Gate::ORIENTATION_FLIPPED_BOTH);
     
-    matching->set_threshold_hc(0.4);
-    matching->set_threshold_detection(0.70);
+    double th_hc = 0.4;
+    double th_in = 0.7;
+    if(argc >= 4) th_hc = atof(argv[3]);
+    if(argc >= 5) th_in = atof(argv[4]);
+    std::cout << "Threshold hill climb: " << th_hc << std::endl;
+    std::cout << "Threshold detection: " << th_in << std::endl;
+    matching->set_threshold_hc(th_hc);
+    matching->set_threshold_detection(th_in);
     matching->set_max_step_size(std::max((length_t)1, project->get_lambda() >> 1u));
     matching->set_scaling_factor(valid_steps[0]);
         

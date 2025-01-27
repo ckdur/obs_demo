@@ -7,7 +7,8 @@ DEGATE_GIT=$(REV_DIR)/src/Degate
 DEGATE=$(DEGATE_GIT)/build/out/bin/Degate
 CREATE_DEGATE=$(REV_DIR)/src/build/create_degate
 RUN_TEMPLATE_DEGATE=$(REV_DIR)/src/build/run_template_matching
-LAMBDA=$(shell python $(ROOT_DIR)/lib/$(TECH)_util.py)
+#LAMBDA=$(shell python $(ROOT_DIR)/lib/$(TECH)_util.py)
+LAMBDA=10
 
 all: $(DEGATE) $(CREATE_DEGATE) $(RUN_TEMPLATE_DEGATE)
 	mkdir -p $(REV_DIR)/$(TOP)_r$(RECLEVELS)
@@ -24,7 +25,7 @@ $(DEGATE): $(DEGATE_GIT)/CMakeLists.txt
 	make -C $(DEGATE_GIT)/build
 
 run_template: $(RUN_TEMPLATE_DEGATE)
-	time $(RUN_TEMPLATE_DEGATE) $(TOP)_r$(RECLEVELS) $(REV_DIR)/$(TOP)_r$(RECLEVELS)
+	time $(RUN_TEMPLATE_DEGATE) $(TOP)_r$(RECLEVELS) $(REV_DIR)/$(TOP)_r$(RECLEVELS) 0.4 0.7
 
 manual: $(DEGATE)
 	$(DEGATE)

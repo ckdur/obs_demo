@@ -2,5 +2,5 @@
 
 from sky130_settings import *
 
-print(int(pxpermicron*1.5))
+print(int(pxpermicron))
 
